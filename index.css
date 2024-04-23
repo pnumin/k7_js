@@ -42,8 +42,8 @@ nav > ul > li {
   padding: 10px;
   margin: 5px;
   border-radius: 10px;
-  background-color:darkslateblue;
-  color: white;
+  background-color:aliceblue;
+  color: black;
 }
 
 a {
@@ -52,7 +52,7 @@ a {
 }
 
 a:visited, a:link {
-  color: white;
+  color: black;
 }
 
 a:hover {
