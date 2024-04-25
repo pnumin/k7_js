@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
       comImg.setAttribute('alt', `computer num ${com}`) ;
 
       userImg.setAttribute('src', `../03/img/${user}.png`) ;
-      userImg.setAttribute('alt', `computer num ${user}`) ;
+      userImg.setAttribute('alt', `user num ${user}`) ;
 
       if (com === user) msg.innerHTML = '맞음' ;
       else msg.innerHTML = '틀림' ; 
