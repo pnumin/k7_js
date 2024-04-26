@@ -14,15 +14,24 @@
     - 초기화 : 랜덤수 새로 생성, input 박스 보이기 ..
 */
 
+//화면 이미지 
+const showImg = (imgName) => {
+  const updownimg = document.querySelector('#updownimg') ;
+  
+  updownimg.setAttribute('src', `./img/${imgName}.png`) ;
+  updownimg.setAttribute('alt', `${imgName}`) ;
+}
+
+
 document.addEventListener('DOMContentLoaded', ()=>{
   //1. DOM에서 제어할 노드를 가져 오기 
-  const updownimg = document.querySelector('#updownimg') ;
   const input = document.querySelector('#txt1') ;
   const bt = document.querySelector('#bt') ;
 
   //랜덤수 
   let n ;
   let flag = true ;
+  let imgName ;
 
   bt.addEventListener('click', (e)=>{
     //form 태그사용시 다시 호출되지 않도록
@@ -32,7 +41,12 @@ document.addEventListener('DOMContentLoaded', ()=>{
     if (flag) {
       flag = false
       n = Math.floor(Math.random() * 100) + 1 ; //1 ~ 100
-      console.log('n=', n) ;
+      console.log('n=', n, flag)
+
+      showImg('what') ;
+      input.style.display = 'inline' ;
+      bt.textContent = '확인';
+      input.value = '' ; 
     }
     
     //입력값 체크
@@ -41,7 +55,36 @@ document.addEventListener('DOMContentLoaded', ()=>{
       input.focus();
       return ;
     }
+
+    //입력값 체크 : 1 ~ 100
+    const user = parseInt(input.value) ;
+    console.log(user)
+    if ( user < 1 || user > 100) {
+      alert('[입력오류] 1~100사이의 숫자를 입력하세요.');
+      input.focus();
+      return ;
+    }
+
+    //input 박스 값이 랜덤수 보다 작으면 up이미지 
+    //input 박스 값이 랜덤수 보다 크면 down이미지 
+    //input 박스 값이 랜덤수가 같으면 good이미지
+
+    if (user < n ) imgName = 'up' ;
+    else if (user > n) imgName = 'down' ;
+    else {
+      imgName = 'good';
+      
+      input.style.display = 'none' ;
+      bt.textContent = '숫자를 다시 생성해 주세요.';
+      flag = true ;
+     }
+
+
+    if (imgName === 'up' || imgName === 'down') {
+      input.value = '' ; 
+      input.focus();
+    }
     
-    console.log(n);
+    showImg(imgName) ;
   });
 });
