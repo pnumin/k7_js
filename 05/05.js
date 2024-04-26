@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
       showImg('what') ;
       input.style.display = 'inline' ;
       bt.textContent = '확인';
-      input.value = '' ; 
     }
     
     //입력값 체크
@@ -81,10 +80,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 
     if (imgName === 'up' || imgName === 'down') {
-      input.value = '' ; 
-      input.focus();
+      input.value = '' ;  
     }
     
+    input.value = '' ;
     showImg(imgName) ;
   });
 });
