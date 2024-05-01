@@ -15,17 +15,17 @@
 .div81, .div82 {
   background-color: white;
   border: none;
-  margin: 10px 20px;
 } 
 .div81 {
   width: 100%;
+  margin: 10px 20px;
 }
 
 .div82 {
   width: 100%;  
 }
 
-.bt81, .bt82 {
+.bt81, .bt82, .bt83 {
   width: 100%;
 }
 

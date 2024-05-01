@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const txt1 = document.querySelector('#txt1') ;
   const bt81 = document.querySelectorAll('.bt81') ; 
   const bt82 = document.querySelectorAll('.bt82') ; 
+  const bt83 = document.querySelectorAll('.bt83') ; 
 
   let arr = [] ;
   let obj = {
@@ -9,6 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
     '바나나' : '🍌',
     '오렌지' : '🍊', 
     '수박' : '🍉',
+    '당근' :'🥕',
+    '아보카도' : '🥑',
+    '오이' :'🥒',
+    '브로콜리':'🥦',
   }
 
   //배열 추가
@@ -42,5 +47,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
       txt1.value = arr.join(' ') ;
     });
+  }
+
+  //배열 변환
+  for(let bt of bt83) {
+    bt.addEventListener('click', (e)=>{
+      e.preventDefault() ;
+
+      let tm = bt.textContent.split('→') ;
+      console.log(tm);
+
+      arr = arr.map(item => item == obj[tm[0]] 
+                                  ? obj[tm[1]] : item );
+
+      txt1.value = arr.join(' ') ;
+    }) ;
   }
 });
